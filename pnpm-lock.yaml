@@ -1,12 +1,13 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@nut-tree/nut-js': 3.0.1-next.20230117103019
+  '@nut-tree/nut-js': 3.0.0
   '@types/node': ^18.11.18
   '@types/uuid': ^9.0.0
   '@types/ws': ^8.5.4
   dotenv: ^16.0.3
   jimp: ^0.16.2
+  node-mac-permissions: ^2.2.1
   nodemon: ^2.0.20
   ts-node: ^10.9.1
   typescript: ^4.9.4
@@ -14,24 +15,25 @@ specifiers:
   ws: ^8.12.0
 
 dependencies:
-  '@nut-tree/nut-js': 3.0.1-next.20230117103019
-  '@types/ws': 8.5.4
+  '@nut-tree/nut-js': 3.0.0
   dotenv: 16.0.3
   jimp: 0.16.2
+  node-mac-permissions: 2.2.1
   uuid: 9.0.0
   ws: 8.12.0
 
 devDependencies:
   '@types/node': 18.11.18
   '@types/uuid': 9.0.0
+  '@types/ws': 8.5.4
   nodemon: 2.0.20
   ts-node: 10.9.1_awa2wsr5thmg3i7jqycphctjfq
   typescript: 4.9.4
 
 packages:
 
-  /@babel/runtime/7.20.7:
-    resolution: {integrity: sha512-UF0tvkUtxwAgZ5W/KrkHf0Rn0fdnLDU9ScxBrEVNUprE/MzirjK4MJUX1/BVDv00Sv8cljtukVK1aky++X1SjQ==}
+  /@babel/runtime/7.20.13:
+    resolution: {integrity: sha512-gt3PKXs0DBoL9xCvOIIZ2NEqAGZqHjAnmVbfQtB620V0uReIQutpel14KcneZuer7UioY8ALKZ7iocavvzTNFA==}
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.11
@@ -49,7 +51,7 @@ packages:
     peerDependencies:
       '@jimp/custom': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/utils': 0.16.2
       bmp-js: 0.1.0
@@ -58,7 +60,7 @@ packages:
   /@jimp/core/0.16.2:
     resolution: {integrity: sha512-dp7HcyUMzjXphXYodI6PaXue+I9PXAavbb+AN+1XqFbotN22Z12DosNPEyy+UhLY/hZiQQqUkEaJHkvV31rs+w==}
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/utils': 0.16.2
       any-base: 1.1.0
       buffer: 5.7.1
@@ -74,7 +76,7 @@ packages:
   /@jimp/custom/0.16.2:
     resolution: {integrity: sha512-GtNwOs4hcVS2GIbqRUf42rUuX07oLB92cj7cqxZb0ZGWwcwhnmSW0TFLAkNafXmqn9ug4VTpNvcJSUdiuECVKg==}
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/core': 0.16.2
     dev: false
 
@@ -83,7 +85,7 @@ packages:
     peerDependencies:
       '@jimp/custom': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/utils': 0.16.2
       gifwrap: 0.9.4
@@ -95,7 +97,7 @@ packages:
     peerDependencies:
       '@jimp/custom': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/utils': 0.16.2
       jpeg-js: 0.4.4
@@ -106,7 +108,7 @@ packages:
     peerDependencies:
       '@jimp/custom': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/utils': 0.16.2
     dev: false
@@ -116,7 +118,7 @@ packages:
     peerDependencies:
       '@jimp/custom': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/utils': 0.16.2
     dev: false
@@ -126,7 +128,7 @@ packages:
     peerDependencies:
       '@jimp/custom': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/utils': 0.16.2
     dev: false
@@ -136,7 +138,7 @@ packages:
     peerDependencies:
       '@jimp/custom': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/utils': 0.16.2
       tinycolor2: 1.5.2
@@ -150,7 +152,7 @@ packages:
       '@jimp/plugin-resize': '>=0.3.5'
       '@jimp/plugin-scale': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/plugin-blit': 0.16.2_@jimp+custom@0.16.2
       '@jimp/plugin-resize': 0.16.2_@jimp+custom@0.16.2
@@ -166,7 +168,7 @@ packages:
       '@jimp/plugin-resize': '>=0.3.5'
       '@jimp/plugin-scale': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/plugin-crop': 0.16.2_@jimp+custom@0.16.2
       '@jimp/plugin-resize': 0.16.2_@jimp+custom@0.16.2
@@ -179,7 +181,7 @@ packages:
     peerDependencies:
       '@jimp/custom': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/utils': 0.16.2
     dev: false
@@ -189,7 +191,7 @@ packages:
     peerDependencies:
       '@jimp/custom': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/utils': 0.16.2
     dev: false
@@ -199,7 +201,7 @@ packages:
     peerDependencies:
       '@jimp/custom': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/utils': 0.16.2
     dev: false
@@ -209,7 +211,7 @@ packages:
     peerDependencies:
       '@jimp/custom': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/utils': 0.16.2
     dev: false
@@ -220,7 +222,7 @@ packages:
       '@jimp/custom': '>=0.3.5'
       '@jimp/plugin-rotate': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/plugin-rotate': 0.16.2_rqxyxjeek4vqmsj2o2ueqoj3ai
       '@jimp/utils': 0.16.2
@@ -231,7 +233,7 @@ packages:
     peerDependencies:
       '@jimp/custom': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/utils': 0.16.2
     dev: false
@@ -241,7 +243,7 @@ packages:
     peerDependencies:
       '@jimp/custom': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/utils': 0.16.2
     dev: false
@@ -251,7 +253,7 @@ packages:
     peerDependencies:
       '@jimp/custom': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/utils': 0.16.2
     dev: false
@@ -261,7 +263,7 @@ packages:
     peerDependencies:
       '@jimp/custom': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/utils': 0.16.2
     dev: false
@@ -272,7 +274,7 @@ packages:
       '@jimp/custom': '>=0.3.5'
       '@jimp/plugin-blit': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/plugin-blit': 0.16.2_@jimp+custom@0.16.2
       '@jimp/utils': 0.16.2
@@ -284,7 +286,7 @@ packages:
     peerDependencies:
       '@jimp/custom': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/utils': 0.16.2
     dev: false
@@ -297,7 +299,7 @@ packages:
       '@jimp/plugin-crop': '>=0.3.5'
       '@jimp/plugin-resize': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/plugin-blit': 0.16.2_@jimp+custom@0.16.2
       '@jimp/plugin-crop': 0.16.2_@jimp+custom@0.16.2
@@ -311,7 +313,7 @@ packages:
       '@jimp/custom': '>=0.3.5'
       '@jimp/plugin-resize': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/plugin-resize': 0.16.2_@jimp+custom@0.16.2
       '@jimp/utils': 0.16.2
@@ -324,7 +326,7 @@ packages:
       '@jimp/plugin-blur': '>=0.3.5'
       '@jimp/plugin-resize': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/plugin-blur': 0.16.2_@jimp+custom@0.16.2
       '@jimp/plugin-resize': 0.16.2_@jimp+custom@0.16.2
@@ -338,7 +340,7 @@ packages:
       '@jimp/plugin-color': '>=0.8.0'
       '@jimp/plugin-resize': '>=0.8.0'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/plugin-color': 0.16.2_@jimp+custom@0.16.2
       '@jimp/plugin-resize': 0.16.2_@jimp+custom@0.16.2
@@ -350,7 +352,7 @@ packages:
     peerDependencies:
       '@jimp/custom': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/plugin-blit': 0.16.2_@jimp+custom@0.16.2
       '@jimp/plugin-blur': 0.16.2_@jimp+custom@0.16.2
@@ -381,7 +383,7 @@ packages:
     peerDependencies:
       '@jimp/custom': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/utils': 0.16.2
       pngjs: 3.4.0
@@ -392,7 +394,7 @@ packages:
     peerDependencies:
       '@jimp/custom': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       utif: 2.0.1
     dev: false
@@ -402,7 +404,7 @@ packages:
     peerDependencies:
       '@jimp/custom': '>=0.3.5'
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/bmp': 0.16.2_@jimp+custom@0.16.2
       '@jimp/custom': 0.16.2
       '@jimp/gif': 0.16.2_@jimp+custom@0.16.2
@@ -415,7 +417,7 @@ packages:
   /@jimp/utils/0.16.2:
     resolution: {integrity: sha512-XENrPvmigiXZQ8E2nxJqO6UVvWBLzbNwyYi3Y8Q1IECoYhYI3kgOQ0fmy4G269Vz1V0omh1bNmC42r4OfXg1Jg==}
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       regenerator-runtime: 0.13.11
     dev: false
 
@@ -435,8 +437,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@nut-tree/libnut-darwin/2.4.1-next.20230114015630:
-    resolution: {integrity: sha512-6kqyztFOGlDUe+VTcYHihWO9DKhRDPSzkKBXU7ZwcP4Ao+8RhXtt6txNMxXzTmNgO+htIqCkPO/ck8bsxtN+QQ==}
+  /@nut-tree/libnut-darwin/2.4.0:
+    resolution: {integrity: sha512-pkqNbUQ6MAgHaPZMPmha7OVGOTwCRPsZBmRgRz1/FGmfh2ROTaf7ixGfvzCaGqZOa8HvHc9UUW9CDi5wal2jzw==}
     engines: {node: '>=10.15.3'}
     cpu: [x64, arm64]
     os: [darwin, linux, win32]
@@ -446,8 +448,8 @@ packages:
       '@nut-tree/node-mac-permissions': 2.2.1
     dev: false
 
-  /@nut-tree/libnut-linux/2.4.1-next.20230114015638:
-    resolution: {integrity: sha512-+cfrO7hDfoO3cU67ggVoGai3G01qpdRD2HoTGq7U9lctfTrM8ro4rb92y4QtSRWdoY/ba65x0tUUourAhosR/A==}
+  /@nut-tree/libnut-linux/2.4.0:
+    resolution: {integrity: sha512-sHQoGfUIB+yLTM944VA6lp7Tz0maXhFqVwC0pYDVpBdi38b8vPPOrvDdj+Om/PQ2mcBBoFfZK6oqSGir8I+iLg==}
     engines: {node: '>=10.15.3'}
     cpu: [x64, arm64]
     os: [darwin, linux, win32]
@@ -457,8 +459,8 @@ packages:
       '@nut-tree/node-mac-permissions': 2.2.1
     dev: false
 
-  /@nut-tree/libnut-win32/2.4.1-next.20230114015718:
-    resolution: {integrity: sha512-KrFdRYk8WPL1obA87Ftw/hrzjTdjWnwPb1XUBpSFgnehu+qjjA3+mZIbHDhXlTHdK2bDqBzC1heOK7ZQpdbFkw==}
+  /@nut-tree/libnut-win32/2.4.0:
+    resolution: {integrity: sha512-HZ9g5ktQPFM934c+GzS8Ff1WbvLd5wSn7LE3q3Y9kFxYHDW/tV+MlqVBzTsPXOzOvfgtcUJl0qrzvRKzqKY04Q==}
     engines: {node: '>=10.15.3'}
     cpu: [x64, arm64]
     os: [darwin, linux, win32]
@@ -468,13 +470,13 @@ packages:
       '@nut-tree/node-mac-permissions': 2.2.1
     dev: false
 
-  /@nut-tree/libnut/2.4.1-next.20230114022106:
-    resolution: {integrity: sha512-+x+c4Hc09yd7aJsR5Q1VM0wWR5qWQ+TB4d2cfIbgePjv9h+/uA3nDfo+8VUvIb8k0Hdr+EwL7uDWFrGM7px/jw==}
+  /@nut-tree/libnut/2.4.0:
+    resolution: {integrity: sha512-+ckKQWAkWaMXGBmEr706vq6YUqfBcKhlmxEJu2dTjQVdJciYwf1jQ/B04gqpJhwO+x/tQv/egHD9VzLEdFodvA==}
     engines: {node: '>=10.15.3'}
     dependencies:
-      '@nut-tree/libnut-darwin': 2.4.1-next.20230114015630
-      '@nut-tree/libnut-linux': 2.4.1-next.20230114015638
-      '@nut-tree/libnut-win32': 2.4.1-next.20230114015718
+      '@nut-tree/libnut-darwin': 2.4.0
+      '@nut-tree/libnut-linux': 2.4.0
+      '@nut-tree/libnut-win32': 2.4.0
     dev: false
 
   /@nut-tree/node-mac-permissions/2.2.1:
@@ -487,12 +489,12 @@ packages:
     dev: false
     optional: true
 
-  /@nut-tree/nut-js/3.0.1-next.20230117103019:
-    resolution: {integrity: sha512-oZF8aGAn5SKFg5/MdlIPfHHTwMMQwOlZOQ400xizbjaIjKFxDtqMwMd+HElf5hrm5yojQmun3EGXBfr9igUYtA==}
+  /@nut-tree/nut-js/3.0.0:
+    resolution: {integrity: sha512-JauhmhAZ5pbHJNU0gN9Wy1MB4Uj3L3Ih47YE45UCus1oQChAxUw2cSwYlob3NVsnpkSOQ3XWsfmY0APKpDzyAQ==}
     cpu: [x64, arm64]
     os: [linux, darwin, win32]
     dependencies:
-      '@nut-tree/libnut': 2.4.1-next.20230114022106
+      '@nut-tree/libnut': 2.4.0
       clipboardy: 2.3.0
       jimp: 0.16.2
       node-abort-controller: 2.0.0
@@ -520,6 +522,7 @@ packages:
 
   /@types/node/18.11.18:
     resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==}
+    dev: true
 
   /@types/uuid/9.0.0:
     resolution: {integrity: sha512-kr90f+ERiQtKWMz5rP32ltJ/BtULDI5RVO0uavn1HQUOwjx0R1h0rnDYNL0CepF1zL5bSY6FISAfd9tOdDhU5Q==}
@@ -529,7 +532,7 @@ packages:
     resolution: {integrity: sha512-zdQDHKUgcX/zBc4GrwsE/7dVdAD8JR4EuiAXiiUhhfyIJXXb2+PrGshFyeXWQPMmmZ2XxgaqclgpIC7eTXc1mg==}
     dependencies:
       '@types/node': 18.11.18
-    dev: false
+    dev: true
 
   /abbrev/1.1.1:
     resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
@@ -831,7 +834,7 @@ packages:
   /jimp/0.16.2:
     resolution: {integrity: sha512-UpItBk81a92f8oEyoGYbO3YK4QcM0hoIyuGHmShoF9Ov63P5Qo7Q/X2xsAgnODmSuDJFOtrPtJd5GSWW4LKdOQ==}
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.20.13
       '@jimp/custom': 0.16.2
       '@jimp/plugins': 0.16.2_@jimp+custom@0.16.2
       '@jimp/types': 0.16.2_@jimp+custom@0.16.2
@@ -900,10 +903,23 @@ packages:
     resolution: {integrity: sha512-L8RfEgjBTHAISTuagw51PprVAqNZoG6KSB6LQ6H1bskMVkFs5E71IyjauLBv3XbuomJlguWF/VnRHdJ1gqiAqA==}
     dev: false
 
+  /node-addon-api/3.2.1:
+    resolution: {integrity: sha512-mmcei9JghVNDYydghQmeDX8KoAm0FAiYyIcUt/N4nhyAipB17pllZQDOJD2fotxABnt4Mdz+dKTO7eftLg4d0A==}
+    dev: false
+
   /node-addon-api/5.0.0:
     resolution: {integrity: sha512-CvkDw2OEnme7ybCykJpVcKH+uAOLV2qLqiyla128dN9TkEWfrYmxG6C2boDe5KcNQqZF3orkqzGgOMvZ/JNekA==}
     dev: false
     optional: true
+
+  /node-mac-permissions/2.2.1:
+    resolution: {integrity: sha512-lmSuexF/XcAvtanSReDDrr61Bz4FveSmVl1wHY0Be6RV0+QpCK1RMpjWxtKG0ALqX4p+k2cJ/u7GBV8dkUeLeA==}
+    os: [darwin]
+    requiresBuild: true
+    dependencies:
+      bindings: 1.5.0
+      node-addon-api: 3.2.1
+    dev: false
 
   /nodemon/2.0.20:
     resolution: {integrity: sha512-Km2mWHKKY5GzRg6i1j5OxOHQtuvVsgskLfigG25yTtbyfRGn/GNvIbRyOf1PSCKJ2aT/58TiuUsuOU5UToVViw==}
