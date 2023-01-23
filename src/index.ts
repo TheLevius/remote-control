@@ -21,10 +21,8 @@ wss.on('connection', (ws) => {
 	const id = uuid();
 	connections[id] = ws;
 	console.log(msg.connectionOn(id));
-
 	ws.on('close', () => {
 		console.log(msg.disconnectWith(id));
-		wsDuplex.end();
 		delete connections[id];
 	});
 });
