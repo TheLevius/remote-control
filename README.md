@@ -1,6 +1,8 @@
 # RSSchool NodeJS websocket task template
->
-> Static http server and base task packages.
+# ВНИМАНИЕ! ЕСТЬ ДВЕ ИМПЛЕМЕНТАЦИИ СКРИНШОТА (БЕЗ СОХРАНЕНИЯ ЗАКОММЕНТИРОВАН)
+Это баг библиотеки Jimp. К сожалению на моем компьюетере невозможно проверить работоспособность ни одной из имплементаций.
+Надеюсь у вас обе окажутся рабочими.
+
 > By default WebSocket client tries to connect to the 8080 port.
 
 ## Installation
@@ -22,4 +24,4 @@
 
 Command | Description
 --- | ---
-`npm run start:dev` | App served @ `http://localhost:8181` with nodemon
+`pnpm start:dev / npm run start:dev` | App served on `http://localhost:8181` with nodemon

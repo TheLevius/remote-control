@@ -72,33 +72,45 @@ export default class {
 	};
 
 	private prnt = async (): Promise<void> => {
-		const imageName = 'nut-capture';
-		const pathToScreen = join(process.cwd(), '/assets');
 		try {
+			const imageName = 'nut-capture';
+			const pathToScreen = join(process.cwd(), '/assets');
 			const { x, y } = await this.nut.mouse.getPosition();
+			//
+			// -------------->>> LIBRARY BUG ON MAC OS 13+ Ventura | ONLY SAVE IN FILE SCREEN IMPLEMENTATION IS POSSIBLE;
+			//
 			await screen.capture(imageName, FileType.PNG, pathToScreen);
 			const screenshot = await Jimp.read(
 				join(pathToScreen, imageName + '.png')
 			);
-			screenshot.crop(x, y, 200, 200);
-			screenshot.writeAsync(
-				join(pathToScreen, `crop-${imageName}${FileType.PNG}`)
+			screenshot.crop(
+				x - 100 < 0 ? 0 : x - 100,
+				y - 100 < 0 ? 0 : y - 100,
+				200,
+				200
 			);
 			const screenBuffer = await screenshot.getBufferAsync(Jimp.MIME_PNG);
-
 			const screenBase64 = screenBuffer.toString('base64');
-
 			this.wsDuplex.write(`prnt_scrn ${screenBase64}`);
-			// -------------->>> LIBRARY BUG WItH MAC OS 13+ | ONLY SAVE SCREEN IMPLEMENTATION IS POSSIBLE;
-			// const img = await screen.grabRegion(new Region(x - 100 < 0 ? 0 : x - 100, y - 100 < 0 ? 0 : y - 100, 200, 200));
+			//
+			// -------------->>> IMPLEMENTATION WITHOUT SAVE;
+			//
+			// const region = new Region(
+			// 	x - 100 < 0 ? 0 : x - 100,
+			// 	y - 100 < 0 ? 0 : y - 100,
+			// 	200,
+			// 	200
+			// );
+			// const img = await screen.grabRegion(region);
 			// const imgRGB = await img.toRGB();
 			// const imgJimp = new Jimp({
 			// 	data: Buffer.from(imgRGB.data),
 			// 	width: imgRGB.width,
 			// 	height: imgRGB.height,
 			// });
-			// const base64img = await jimpImg.getBase64Async(Jimp.MIME_PNG);
-			// this.wsDuplex.send(`prnt_scrn ${base64img}`);
+			// const imgBuffer = await imgJimp.getBufferAsync(Jimp.MIME_PNG);
+			// const imgBase64 = imgBuffer.toString('base64');
+			// this.wsDuplex.write(`prnt_scrn ${imgBase64}`);
 		} catch (err) {
 			console.error(err);
 		}
