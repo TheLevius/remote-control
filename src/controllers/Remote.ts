@@ -2,35 +2,30 @@ import WebSocket from 'ws';
 import { Button, FileType, Point, Region, screen } from '@nut-tree/nut-js';
 import { Nut } from '../index.js';
 import { join } from 'node:path';
-import { readFileSync } from 'node:fs';
-import { createReadStream } from 'node:fs';
 import Jimp from 'jimp';
 import Former from './../services/Former.js';
 import internal from 'node:stream';
 export default class {
 	nut: Nut;
-	ws: WebSocket;
-	former: Former;
+	private former: Former;
 	wsDuplex: internal.Duplex;
 	constructor({
 		nut,
-		ws,
 		former,
 		wsDuplex,
 	}: {
 		nut: Nut;
-		ws: WebSocket;
 		former: Former;
 		wsDuplex: internal.Duplex;
 	}) {
 		this.nut = nut;
-		this.ws = ws;
 		this.former = former;
 		this.wsDuplex = wsDuplex;
 	}
 
 	public handler = async (msg: WebSocket.RawData): Promise<void> => {
 		const strMsg = msg.toString();
+		console.log(strMsg);
 		const [method, action, ...strValues] = strMsg.split(
 			/[_ ]/
 		) as HandlerTuple;
@@ -39,9 +34,7 @@ export default class {
 		);
 		try {
 			const result = await this?.[method](action, intValues);
-			const strResult = `${method}_${action} ${result ?? strValues}`;
-			this.ws.send(strResult);
-			console.log(strResult);
+			this.wsDuplex.write(`${method}_${action} ${result ?? strValues}`);
 		} catch (err) {
 			console.error(err);
 		}
@@ -77,59 +70,35 @@ export default class {
 			console.error(err);
 		}
 	};
+
 	private prnt = async (): Promise<void> => {
 		const imageName = 'nut-capture';
 		const pathToScreen = join(process.cwd(), '/assets');
 		try {
-			// const grab = await this.nut.screen.grabRegion(
-			// 	new Region(50, 50, 100, 100)
-			// );
-			// this.ws.send(`prnt_scrn ${''}`);
-			// console.log(grab);
 			const { x, y } = await this.nut.mouse.getPosition();
-			// const img = await screen.grabRegion(new Region(x, y, 100, 100));
-			// await screen.capture(imageName, FileType.PNG, pathToScreen);
-			const rawData = readFileSync(
-				join(pathToScreen, imageName + '.png'),
-				'utf-8'
+			await screen.capture(imageName, FileType.PNG, pathToScreen);
+			const screenshot = await Jimp.read(
+				join(pathToScreen, imageName + '.png')
 			);
-			const image = await Jimp.read(Buffer.from(rawData, 'base64'));
-			console.log(image);
-			// const base64img = await jimpImg.getBase64Async(Jimp.MIME_PNG);
+			screenshot.crop(x, y, 200, 200);
+			screenshot.writeAsync(
+				join(pathToScreen, `crop-${imageName}${FileType.PNG}`)
+			);
+			const screenBuffer = await screenshot.getBufferAsync(Jimp.MIME_PNG);
 
-			// this.ws.send(`prnt_scrn ${base64img}`);
+			const screenBase64 = screenBuffer.toString('base64');
 
+			this.wsDuplex.write(`prnt_scrn ${screenBase64}`);
+			// -------------->>> LIBRARY BUG WItH MAC OS 13+ | ONLY SAVE SCREEN IMPLEMENTATION IS POSSIBLE;
+			// const img = await screen.grabRegion(new Region(x - 100 < 0 ? 0 : x - 100, y - 100 < 0 ? 0 : y - 100, 200, 200));
 			// const imgRGB = await img.toRGB();
-			// console.log(imgRGB);
 			// const imgJimp = new Jimp({
 			// 	data: Buffer.from(imgRGB.data),
 			// 	width: imgRGB.width,
 			// 	height: imgRGB.height,
 			// });
-			// console.log(imgJimp);
-
-			// await screen.capture(imageName, FileType.PNG, pathToScreen);
-			// const image = await Jimp.read(
-			// 	join(pathToScreen, imageName + '.png')
-			// );
-
-			// image.crop(
-			// 	x - 100 < 0 ? 0 : x - 100,
-			// 	y - 100 < 0 ? 0 : y - 100,
-			// 	200,
-			// 	200
-			// );
-			// await image.writeAsync(
-			// 	join(pathToScreen, 'crop-' + imageName + '.png')
-			// );
-			// const buffImage = await image.getBufferAsync(Jimp.MIME_PNG);
-			// // const strImage = await image.getBase64Async(Jimp.MIME_PNG);
-			// const cropImage = await Jimp.read(
-			// 	join(pathToScreen, 'crop-' + imageName + '.png')
-			// );
-
-			// const buffCrop = await cropImage.getBufferAsync(Jimp.MIME_PNG);
-			// const body = []
+			// const base64img = await jimpImg.getBase64Async(Jimp.MIME_PNG);
+			// this.wsDuplex.send(`prnt_scrn ${base64img}`);
 		} catch (err) {
 			console.error(err);
 		}
